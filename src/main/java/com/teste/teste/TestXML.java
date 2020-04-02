@@ -1,7 +1,5 @@
 package com.teste.teste;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -39,19 +37,10 @@ public class TestXML {
 
         System.out.println("Criou a request");
 
-        var response = restTemplate.postForObject("http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo", request, String.class);
+        var response = restTemplate.postForObject(
+                "http://ws.correios.com.br/calculador/CalcPrecoPrazo.asmx/CalcPrecoPrazo", request, Resultado.class);
 
         System.out.println("Fez a request");
-
-        XmlMapper xmlMapper = new XmlMapper();
-
-        try {
-            assert response != null;
-            var resultado = xmlMapper.readValue(response, Resultado.class);
-            resultado.getServicos().getCServico().forEach(System.out::println);
-        } catch (JsonProcessingException e) {
-            System.out.println(e.getMessage());
-            System.out.println(e.getLocation());
-        }
+        response.getServicos().getCServico().forEach(System.out::println);
     }
 }
