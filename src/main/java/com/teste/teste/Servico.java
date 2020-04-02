@@ -15,7 +15,7 @@ public class Servico {
     @JacksonXmlProperty(localName = "Valor")
     private String valor;
     @JacksonXmlProperty(localName = "PrazoEntrega")
-    private String prazoEntrega;
+    private Integer prazoEntrega;
     @JacksonXmlProperty(localName = "ValorMaoPropria")
     private String valorMaoPropria;
     @JacksonXmlProperty(localName = "ValorAvisoRecebimento")
@@ -27,11 +27,15 @@ public class Servico {
     @JacksonXmlProperty(localName = "EntregaSabado")
     private String entregaSabado;
     @JacksonXmlProperty(localName = "Erro")
-    private String erro;
+    private Integer erro;
     @JacksonXmlProperty(localName = "MsgErro")
     private String msgErro;
     @JacksonXmlProperty(localName = "ValorSemAdicionais")
     private String valorSemAdicionais;
     @JacksonXmlProperty(localName = "obsFim")
     private String obsFim;
+    @JacksonXmlProperty(localName = "DataMaxEntrega")
+    private String dataMaxEntrega;
+    @JacksonXmlProperty(localName = "HoraMaxEntrega")
+    private String horaMaxEntrega;
 }
